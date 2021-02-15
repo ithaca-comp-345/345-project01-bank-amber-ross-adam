@@ -44,10 +44,26 @@ public class AdministrationTest {
     }
     @Test
     void freezeTest(){
-        /** Equivalence class:
-         * 
-         */
+    /** Equivalence classes: freeze correctly halts all banking ability of account by throwing exception
+     * Edge case: freeze an account with no balance and no history
+     * 
+     */
+    Administration admin = new Administration();
+    BankAccount account = new BankAccount("a@b.com", 0);
+    BankAccount account2 = new BankAccount("a@b.com", 100);
+    admin.freeze(account);
+    assertThrows(IllegalArgumentException.class, () -> account.getBalance());
+    assertThrows(IllegalArgumentException.class, () -> account.getEmail());
+    assertThrows(IllegalArgumentException.class, () -> account.transfer(100, account2));
+    assertThrows(IllegalArgumentException.class, () -> account.deposit(11));
+    assertThrows(IllegalArgumentException.class, () -> account.withdraw(1));
 
+
+    assertThrows(IllegalArgumentException.class, () -> account2.getBalance());
+    assertThrows(IllegalArgumentException.class, () -> account2.getEmail());
+    assertThrows(IllegalArgumentException.class, () -> account2.transfer(100, account));
+    assertThrows(IllegalArgumentException.class, () -> account2.deposit(11));
+    assertThrows(IllegalArgumentException.class, () -> account2.withdraw(1));
     }
     @Test
     void unfreezeTest(){
