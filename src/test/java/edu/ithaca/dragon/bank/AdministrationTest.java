@@ -66,10 +66,19 @@ public class AdministrationTest {
     assertThrows(IllegalArgumentException.class, () -> account2.withdraw(1));
     }
     @Test
-    void unfreezeTest(){
-        /** Equivalence class:
-         * 
-         */
-
+    void unfreezeTest() throws InsufficientFundsException {
+        /** Equivalence classes: freeze correctly halts all banking ability of account by throwing exception
+     * Edge case: freeze an account with no balance and no history
+     * 
+     */
+    Administration admin = new Administration();
+    BankAccount account = new BankAccount("a@b.com", 0);
+    admin.freeze(account);
+    assertEquals(0, account.getBalance());
+    assertEquals("a@b.com", account.getEmail());
+    account.deposit(11);
+    assertEquals(11, account.getBalance());
+    account.withdraw(10);
+    assertEquals(1, account.getBalance());
     }
 }
