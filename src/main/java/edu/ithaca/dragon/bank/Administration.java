@@ -10,7 +10,7 @@ public class Administration {
      * @param accountList
      * @return sum of all balances in accountList
      */
-    public double getOverallMoney(ArrayList<BankAccount> accountList){
+    public static double getOverallMoney(ArrayList<BankAccount> accountList){
         return 0.0;
     }
     
