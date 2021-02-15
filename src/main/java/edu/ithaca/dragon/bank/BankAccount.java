@@ -32,7 +32,7 @@ public class BankAccount {
      * @return true if amount is positive and has two decimal places or less, false otherwise
      */
     public static boolean isAmountValid(double amount){
-        if (amount <= 0){
+        if (amount < 0){
             return false;
         }
         Double amountWrapper = amount;

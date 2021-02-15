@@ -14,10 +14,18 @@ public class AdministrationTest {
      * Another equivalence class is correct/incorrect balances.
      * An incorrect balance (negative) would throw an exception. Overall money should never
      * be negative.
-     * Edge cases: only one bank account object added together, overall money = 0
+     * Edge cases: only one bank account object added, overall money = 0
     */
-    
-
+    ArrayList bankAccounts = new ArrayList<BankAccount>();
+    bankAccounts.add(new BankAccount("abc@b.com", 200));
+    assertEquals(200, Administration.getOverallMoney(bankAccounts));
+    bankAccounts.add(new BankAccount("abc@b.com", 12.32));
+    assertEquals(212.32, Administration.getOverallMoney(bankAccounts));
+    assertEquals(212.32, Administration.getOverallMoney(bankAccounts));
+    bankAccounts.clear();
+    bankAccounts.add(new BankAccount("abc@b.com", 0));
+    assertEquals(0, Administration.getOverallMoney(bankAccounts));
+    assertThrows(IllegalArgumentException.class, () -> bankAccounts.add(new BankAccount("a@b.com", -10)));
     }
     @Test
     void requestReportTest(){
