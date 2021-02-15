@@ -98,6 +98,7 @@ class BankAccountTest {
         assertThrows(IllegalArgumentException.class, ()-> new BankAccount("a@b.com", 100.111));
     }
 
+
     @Test
     void isAmountValidTest(){
         //negative amount test

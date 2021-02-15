@@ -23,7 +23,8 @@ public class BankAccountTeller {
         
     }   
     
-    public void getAccountID() {
+    public String getAccountID(){
+        return accountID;
         
     }
 }
