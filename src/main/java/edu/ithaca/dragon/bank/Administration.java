@@ -10,12 +10,20 @@ public class Administration {
      * @param accountList
      * @return sum of all balances in accountList
      */
-    public static double getOverallMoney(ArrayList<BankAccount> accountList){
+    public double getOverallMoney(ArrayList<BankAccount> accountList){
         double sum = 0;
         for(int i = 0; i< accountList.size(); i++){
             sum += accountList.get(i).getBalance();
         }
         return sum;
     }
-    
+
+    /**
+     * Returns sum of all bank accounts
+     * @param suspiciousAccount
+     * @return prints report of recent transactions.
+     */
+    public void requestReport(BankAccount account){
+
+    }
 }
