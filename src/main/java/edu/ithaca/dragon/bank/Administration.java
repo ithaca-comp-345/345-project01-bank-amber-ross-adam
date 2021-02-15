@@ -23,7 +23,7 @@ public class Administration {
      * @param suspiciousAccount
      * @return prints report of recent transactions.
      */
-    public void requestReport(BankAccount account){
-
-    }
+    public String requestReport(BankAccount account){
+        return "";
+    }   
 }

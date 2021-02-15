@@ -30,11 +30,17 @@ public class AdministrationTest {
     }
     @Test
     void requestReportTest(){
-    /** Equivalence class: freezing non-suspicious accounts and freezing suspicious accounts
-     * Suspicious accounts would follow the following criteria: 
+    /** Equivalence classes: Correct reports and incorrect reports.
+     * Correct reports follow the same format and provide accurate bank info
+     * info includes: balance, email, transaction history
+     * Edge case: An account with a 0 balance and 0 history.
      * 
      */
-
+    Administration admin = new Administration();
+    BankAccount account = new BankAccount("a@b.com", 0);
+    assertEquals("Email: a@b.com Balance: 0 History: ", admin.requestReport(account));
+    BankAccount account2 = new BankAccount("sus@sus.com", 100); //Will complete this test once transaction history is implemented
+    assertEquals("Email: sus@sus.com Balance: 100 History: 100 Pizza hut 1000 ATM 1000 ATM 3000 Doordash", admin.requestReport(account2));
     }
     @Test
     void freezeTest(){
