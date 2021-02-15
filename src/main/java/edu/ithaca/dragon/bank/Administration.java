@@ -10,10 +10,10 @@ public class Administration {
      * @param accountList
      * @return sum of all balances in accountList
      */
-    public double getOverallMoney(ArrayList<BankAccount> accountList){
+    public double getOverallMoney(ArrayList<BankAccountInterface> accountList){
         double sum = 0;
         for(int i = 0; i< accountList.size(); i++){
-            sum += accountList.get(i).getBalance();
+            sum += accountList.get(i).checkBal();
         }
         return sum;
     }
@@ -21,10 +21,10 @@ public class Administration {
     /**
      * Returns report of account.
      * @param account
-     * @return prints report of recent transactions, email, balance.
+     * @return prints report of recent transactions, password, balance.
      */
-    public String requestReport(BankAccount account){
-        return "Email: " + account.getEmail() + " Balance: " + account.getBalance() + " History: ";
+    public String requestReport(BankAccountInterface account){
+        return "Password: " + " Balance: " + account.checkBal() + " History: " + account.transactionHistory();
     }
     
     /**
@@ -35,7 +35,7 @@ public class Administration {
     public void freeze(BankAccount account){
 
     }
-    
+
     /**
      * Takes freeze off account to continue all functions.
      * @param account
