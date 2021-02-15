@@ -35,4 +35,15 @@ public class Administration {
     public void freeze(BankAccount account){
 
     }
+    
+    /**
+     * Takes freeze off account to continue all functions.
+     * @param account
+     * @return Void.
+     */
+    public void unfreeze(BankAccount account){
+
+    }
+
+
 }
