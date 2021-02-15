@@ -19,11 +19,20 @@ public class Administration {
     }
 
     /**
-     * Returns sum of all bank accounts
-     * @param suspiciousAccount
-     * @return prints report of recent transactions.
+     * Returns report of account.
+     * @param account
+     * @return prints report of recent transactions, email, balance.
      */
     public String requestReport(BankAccount account){
         return "Email: " + account.getEmail() + " Balance: " + account.getBalance() + " History: ";
-    }   
+    }
+    
+    /**
+     * Puts freeze on account to halt all functions.
+     * @param account
+     * @return Void.
+     */
+    public void freeze(BankAccount account){
+
+    }
 }
