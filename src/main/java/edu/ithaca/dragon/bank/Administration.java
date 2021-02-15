@@ -24,6 +24,6 @@ public class Administration {
      * @return prints report of recent transactions.
      */
     public String requestReport(BankAccount account){
-        return "";
+        return "Email: " + account.getEmail() + " Balance: " + account.getBalance() + " History: ";
     }   
 }
