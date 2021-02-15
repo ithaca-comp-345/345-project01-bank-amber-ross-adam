@@ -1,6 +1,6 @@
 package edu.ithaca.dragon.bank;
 
-public class SavingsAccount implements BankAccount{
+public class SavingsAccount implements BankAccountInterface{
 
     public String password;
     public double balance;
