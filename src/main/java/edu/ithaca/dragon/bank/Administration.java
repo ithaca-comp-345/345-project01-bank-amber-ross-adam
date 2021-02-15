@@ -11,7 +11,11 @@ public class Administration {
      * @return sum of all balances in accountList
      */
     public static double getOverallMoney(ArrayList<BankAccount> accountList){
-        return 0.0;
+        double sum = 0;
+        for(int i = 0; i< accountList.size(); i++){
+            sum += accountList.get(i).getBalance();
+        }
+        return sum;
     }
     
 }
