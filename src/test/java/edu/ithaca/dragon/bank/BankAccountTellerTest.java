@@ -21,6 +21,9 @@ public class BankAccountTellerTest {
 
     @Test
     void getAccountIDTest() throws InsufficientFundsException {
+        BankAccount bankAccount = new BankAccount("a@b.com", 200);
+
+        assertEquals(200, bankAccount.getAccountID());
       
 
     
