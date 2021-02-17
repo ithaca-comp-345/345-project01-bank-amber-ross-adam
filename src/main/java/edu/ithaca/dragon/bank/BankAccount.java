@@ -2,6 +2,8 @@ package edu.ithaca.dragon.bank;
 
 public class BankAccount {
 
+    public double balance;
+
     /**
      * Checks the validity of an amount being entered for a given transaction
      * @param amount
