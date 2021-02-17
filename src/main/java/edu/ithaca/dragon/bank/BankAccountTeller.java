@@ -6,7 +6,7 @@ import java.util.List;
 public class BankAccountTeller {
     
     private String accountID;
-    private List<BankAccount> accounts;
+    private List<BankAccountInterface> accounts;
     
     /**
      * @post Creates a new bankAccount() with accountID 
@@ -14,7 +14,7 @@ public class BankAccountTeller {
      * Keep track of this accounts using array list.
      * 
      */
-    public void createAccount(String accountID, String email, double startingBalance){
+    public void createAccount(String accountID, String which, double startingBalance){
         
        
     }
