@@ -1,24 +1,22 @@
 package edu.ithaca.dragon.bank;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BankAccountTeller {
     
     private String accountID;
+    private List<BankAccountInterface> accounts;
     
     /**
      * @post Creates a new bankAccount() with accountID 
-     * returns the account number of this new account 
+     * 
+     * checking or saving account if/statment
      * Keep track of this accounts using array list.
      * 
      */
-    public int createAccount(String accountID, String email, double startingBalance){
+    public void createAccount(String accountID, String email, double startingBalance){
         
-        List<Object> accounts = new ArrayList<Object>();
-        accounts.add(new BankAccount(email, startingBalance));
-        
-        return 0;
+       
     }
 
     /**
@@ -36,5 +34,14 @@ public class BankAccountTeller {
     public String getAccountID(){
         return accountID;
         
+
     }
+
+     /**
+     * @returns the balance of the account
+     */
+    public double checkBalance(String accountID){
+        throw new RuntimeException("not done yet");
+    }
+
 }
