@@ -3,7 +3,7 @@ package edu.ithaca.dragon.bank;
 import java.util.ArrayList;
 
 public class Administration {
-    private double equity;
+    
 
     /**
      * Returns sum of all bank accounts
@@ -32,7 +32,7 @@ public class Administration {
      * @param account
      * @return Void.
      */
-    public void freeze(BankAccount account){
+    public void freeze(BankAccountInterface account){
 
     }
 
@@ -41,7 +41,7 @@ public class Administration {
      * @param account
      * @return Void.
      */
-    public void unfreeze(BankAccount account){
+    public void unfreeze(BankAccountInterface account){
 
     }
 

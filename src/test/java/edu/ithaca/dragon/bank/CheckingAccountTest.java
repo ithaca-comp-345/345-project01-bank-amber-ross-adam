@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class CheckingAccountTest {
 
     @Test
-    public CheckingAccountTest(){
+    public void checkingAccountTest() throws InsufficientFundsException {
         CheckingAccount myChecking = new CheckingAccount("carrot", 100);
         CheckingAccount yourChecking = new CheckingAccount("zucchini", 100);
 

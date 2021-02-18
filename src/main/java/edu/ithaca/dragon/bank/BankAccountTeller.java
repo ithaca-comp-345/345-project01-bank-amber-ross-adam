@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class BankAccountTeller {
     
     private String accountID;
-    private List<BankAccountInterface> accounts;
+    List<BankAccountInterface> accounts = new ArrayList<BankAccountInterface>();
     
     /**
      * @post Creates a new bankAccount() with accountID 

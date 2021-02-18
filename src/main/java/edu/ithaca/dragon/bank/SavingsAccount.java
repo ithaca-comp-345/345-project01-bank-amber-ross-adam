@@ -35,7 +35,7 @@ public class SavingsAccount implements BankAccountInterface{
     }
 
     @Override
-    public void transferTo(BankAccount transferAccount, double amount) throws InsufficientFundsException {
+    public void transferTo(BankAccountInterface transferAccount, double amount) throws InsufficientFundsException {
         if (this.balance <= amount){
             this.balance -= amount;
             transferAccount.deposit(amount);
@@ -47,12 +47,12 @@ public class SavingsAccount implements BankAccountInterface{
 
     @Override
     public String transactionHistory() {
-        // TODO Auto-generated method stub
+        
         return null;
     }
 
     public void compound() {
         balance += balance * interest;
     }
-    
+
 }
