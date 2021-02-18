@@ -27,11 +27,13 @@ public class CheckingAccount implements BankAccountInterface{
 
     @Override
     public void deposit(double amount) {
-        balance += amount;
+        if (amount > 0){
+            balance += amount;
+        }
     }
 
     @Override
-    public void transferTo(BankAccount transferAccount, double amount) throws InsufficientFundsException {
+    public void transferTo(BankAccountInterface transferAccount, double amount) throws InsufficientFundsException {
         if (this.balance <= amount){
             this.balance -= amount;
             transferAccount.deposit(amount);

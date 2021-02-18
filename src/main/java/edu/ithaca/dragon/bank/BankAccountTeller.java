@@ -1,5 +1,6 @@
 package edu.ithaca.dragon.bank;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BankAccountTeller {
@@ -14,9 +15,14 @@ public class BankAccountTeller {
      * Keep track of this accounts using array list.
      * 
      */
-    public void createAccount(String accountID, String email, double startingBalance){
+    public void createAccount(String accountID, String email, String accountType, double startingBalance){
         
-       
+        if (accountType.equalsIgnoreCase("checking")){
+            accounts.add(new CheckingAccount(email, startingBalance));
+        }
+        else if (accountType.equalsIgnoreCase("savings")){
+            accounts.add(new SavingsAccount(email, startingBalance, 0.03, 500));
+        }
     }
 
     /**
