@@ -13,12 +13,16 @@ public class BankAccountTeller {
      * Keep track of this accounts using array list.
      * 
      */
-    public int createAccount(String accountID, String email, double startingBalance){
+    public void createAccount(String accountID, String email, String accountType, double startingBalance){
         
         List<Object> accounts = new ArrayList<Object>();
-        accounts.add(new BankAccount(email, startingBalance));
-        
-        return 0;
+
+        if (accountType.equalsIgnoreCase("checking")){
+            accounts.add(new CheckingAccount(email, startingBalance));
+        }
+        else if (accountType.equalsIgnoreCase("savings")){
+            accounts.add(new SavingsAccount(email, startingBalance, 0.03, 500));
+        }
     }
 
     /**
