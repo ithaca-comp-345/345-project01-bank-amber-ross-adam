@@ -1,6 +1,5 @@
 package edu.ithaca.dragon.bank;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +11,7 @@ public class BankAccountTeller {
     /**
      * @post Creates a new bankAccount() with accountID 
      * 
+     * checking or saving account if/statment
      * Keep track of this accounts using array list.
      * 
      */
