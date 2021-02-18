@@ -1,11 +1,13 @@
 package edu.ithaca.dragon.bank;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BankAccountTeller {
     
     private String accountID;
-    private List<BankAccountInterface> accounts;
+    List<BankAccountInterface> accounts = new ArrayList<BankAccountInterface>();
     
     /**
      * @post Creates a new bankAccount() with accountID 
@@ -14,10 +16,20 @@ public class BankAccountTeller {
      * Keep track of this accounts using array list.
      * 
      */
-    public void createAccount(String acooutType, String email, double startingBalance){
-    
-        if (acooutType == "chechking"){
-            accounts.add(new CheckingAccount( email, startingBalance));
+    public void createAccount(String accountID, String which, double startingBalance){
+        if(which.equalsIgnoreCase("Checking")){
+            accounts.add(new CheckingAccount(accountID, startingBalance));
+        }
+        else if(which.equalsIgnoreCase("Savings")){
+            Scanner myObj = new Scanner(System.in);
+            System.out.println("Enter interest");
+            double interestIn = myObj.nextDouble();
+            System.out.println("Enter max withdrawal amount");
+            double maxWithdrawAmtIn = myObj.nextDouble();
+            accounts.add(new SavingsAccount(accountID, startingBalance, interestIn, maxWithdrawAmtIn));
+        }
+        else{
+            throw new IllegalArgumentException("Must be Checking or Savings");
         }
        
     }

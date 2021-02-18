@@ -10,10 +10,12 @@ public class BankAccountTellerTest {
     //get the balance to see if the account exits . Ask amber the balance 
     @Test
     void createAccountAndGetBalanceTest() {
-        BankAccountTeller amber = new BankAccountTeller(); 
-        amber.createAccount("checking", "elliott.amber2017@gmail.com", 400.50);
-
-        assertEquals(400.50, amber.checkBalance("checking"));
+        BankAccountTeller teller = new BankAccountTeller(); 
+        teller.createAccount("123405", "Checking", 400.50);
+        assertNotNull(teller.accounts.get(0));
+        //assertEquals(400.50, teller.checkBalance("123405"));
+        //teller.createAccount("123", "Savings", 100);
+        //assertEquals(400.50, teller.checkBalance("123"));
         
     }
 

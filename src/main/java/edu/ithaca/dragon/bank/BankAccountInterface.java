@@ -8,7 +8,7 @@ public interface BankAccountInterface {
 
     public void deposit(double amount);
 
-    public void transferTo(BankAccount transferAccount, double amount) throws InsufficientFundsException;
+    public void transferTo(BankAccountInterface transferAccount, double amount) throws InsufficientFundsException;
 
     public String transactionHistory();
 
