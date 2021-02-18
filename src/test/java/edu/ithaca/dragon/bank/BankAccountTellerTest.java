@@ -11,9 +11,9 @@ public class BankAccountTellerTest {
     @Test
     void createAccountAndGetBalanceTest() {
         BankAccountTeller amber = new BankAccountTeller(); 
-        amber.createAccount("123405", "elliott.amber2017@gmail.com", 400.50);
+        amber.createAccount("checking", "elliott.amber2017@gmail.com", 400.50);
 
-        assertEquals(400.50, amber.checkBalance("123405"));
+        assertEquals(400.50, amber.checkBalance("checking"));
         
     }
 

@@ -14,8 +14,11 @@ public class BankAccountTeller {
      * Keep track of this accounts using array list.
      * 
      */
-    public void createAccount(String accountID, String email, double startingBalance){
-        
+    public void createAccount(String acooutType, String email, double startingBalance){
+    
+        if (acooutType == "chechking"){
+            accounts.add(new CheckingAccount( email, startingBalance));
+        }
        
     }
 
