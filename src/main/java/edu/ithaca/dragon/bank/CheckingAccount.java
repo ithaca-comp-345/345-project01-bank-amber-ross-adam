@@ -49,4 +49,10 @@ public class CheckingAccount implements BankAccountInterface{
         return null;
     }
 
+    @Override
+    public String getPassword() {
+        
+        return password;
+    }
+
 }
