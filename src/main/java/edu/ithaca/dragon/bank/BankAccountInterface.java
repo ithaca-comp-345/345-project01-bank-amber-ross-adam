@@ -12,4 +12,6 @@ public interface BankAccountInterface {
 
     public String transactionHistory();
 
+    public String getPassword();
+
 }

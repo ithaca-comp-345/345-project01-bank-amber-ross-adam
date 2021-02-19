@@ -55,4 +55,10 @@ public class SavingsAccount implements BankAccountInterface{
         balance += balance * interest;
     }
 
+    @Override
+    public String getPassword() {
+        
+        return password;
+    }
+
 }
