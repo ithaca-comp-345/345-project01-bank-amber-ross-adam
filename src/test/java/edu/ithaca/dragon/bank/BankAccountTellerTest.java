@@ -40,7 +40,7 @@ public class BankAccountTellerTest {
     void closeAccountTest() throws InsufficientFundsException {
         BankAccountTeller teller = new BankAccountTeller(); 
         teller.createAccount("123405", "checking", 400.50);
-        teller.createAccount("345654", "saving", 400.50);
+        teller.createAccount("345654", "savings", 400.50);
 
 
 
