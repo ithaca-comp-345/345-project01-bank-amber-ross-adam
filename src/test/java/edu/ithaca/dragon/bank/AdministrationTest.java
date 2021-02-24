@@ -29,19 +29,19 @@ public class AdministrationTest {
     assertThrows(IllegalArgumentException.class, () -> bankAccounts.add(new CheckingAccount("password", -10)));
     }
     @Test
-    void requestReportTest(){}
+    void requestReportTest(){
     /** Equivalence classes: Correct reports and incorrect reports.
      * Correct reports follow the same format and provide accurate bank info
      * info includes: balance, email, transaction history
      * Edge case: An account with a 0 balance and 0 history.
      * 
      */
-        /**
+    
     Administration admin = new Administration();
-    BankAccount account = new BankAccount("a@b.com", 0);
-    assertEquals("Email: a@b.com Balance: 0 History: ", admin.requestReport(account));
-    BankAccount account2 = new BankAccount("sus@sus.com", 100); //Will complete this test once transaction history is implemented
-    assertEquals("Email: sus@sus.com Balance: 100 History: 100 Pizza hut 1000 ATM 1000 ATM 3000 Doordash", admin.requestReport(account2));
+    BankAccountInterface account = new CheckingAccount("123", 0);
+    assertEquals("Password: 123 Balance: 0 History: ", admin.requestReport(account));
+    BankAccountInterface account2 = new SavingsAccount("1234", 100, 0.05, 100); //Will complete this test once transaction history is implemented
+    assertEquals("Password: 1234 Balance: 100 History: 100 Pizza hut 1000 ATM 1000 ATM 3000 Doordash", admin.requestReport(account2));
     }
     @Test
     void freezeTest(){
@@ -49,42 +49,42 @@ public class AdministrationTest {
      * Edge case: freeze an account with no balance and no history
      * 
      */
-    /**
+    
     Administration admin = new Administration();
-    BankAccount account = new BankAccount("a@b.com", 0);
-    BankAccount account2 = new BankAccount("a@b.com", 100);
+    BankAccountInterface account = new CheckingAccount("123", 0);
+    BankAccountInterface account2 = new SavingsAccount("1234", 100, .05, 1000);
     admin.freeze(account);
-    assertThrows(IllegalArgumentException.class, () -> account.getBalance());
-    assertThrows(IllegalArgumentException.class, () -> account.getEmail());
-    assertThrows(IllegalArgumentException.class, () -> account.transfer(100, account2));
+    assertThrows(IllegalArgumentException.class, () -> account.checkBal());
+    assertThrows(IllegalArgumentException.class, () -> account.getPassword());
+    assertThrows(IllegalArgumentException.class, () -> account.transferTo(account2, 100));
     assertThrows(IllegalArgumentException.class, () -> account.deposit(11));
     assertThrows(IllegalArgumentException.class, () -> account.withdraw(1));
 
 
-    assertThrows(IllegalArgumentException.class, () -> account2.getBalance());
-    assertThrows(IllegalArgumentException.class, () -> account2.getEmail());
-    assertThrows(IllegalArgumentException.class, () -> account2.transfer(100, account));
+    assertThrows(IllegalArgumentException.class, () -> account2.checkBal());
+    assertThrows(IllegalArgumentException.class, () -> account2.getPassword());
+    assertThrows(IllegalArgumentException.class, () -> account2.transferTo(account, 100));
     assertThrows(IllegalArgumentException.class, () -> account2.deposit(11));
     assertThrows(IllegalArgumentException.class, () -> account2.withdraw(1));
     }
-    */
+
     @Test
     void unfreezeTest() throws InsufficientFundsException {
         /** Equivalence classes: freeze correctly halts all banking ability of account by throwing exception
      * Edge case: freeze an account with no balance and no history
      * 
      */
-    /**
+    
     Administration admin = new Administration();
-    BankAccount account = new BankAccount("a@b.com", 0);
+    BankAccountInterface account = new CheckingAccount("123", 0);
     admin.freeze(account);
-    assertEquals(0, account.getBalance());
-    assertEquals("a@b.com", account.getEmail());
+    assertEquals(0, account.checkBal());
+    assertEquals("123", account.getPassword());
     account.deposit(11);
-    assertEquals(11, account.getBalance());
+    assertEquals(11, account.checkBal());
     account.withdraw(10);
-    assertEquals(1, account.getBalance());
-    */
+    assertEquals(1, account.checkBal());
+    
     }
     
     
