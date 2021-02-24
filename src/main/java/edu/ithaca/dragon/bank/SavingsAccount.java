@@ -6,22 +6,38 @@ public class SavingsAccount implements BankAccountInterface{
     public double balance;
     public double interest;
     public double maxWithdrawAmt;
+    public boolean freeze;
 
     public SavingsAccount(String passwordIn, double balanceIn, double interestIn, double maxWithdrawAmtIn){
-        this.password = passwordIn;
-        this.balance = balanceIn;
-        this.interest = interestIn;
-        this.maxWithdrawAmt = maxWithdrawAmtIn;
+        if(freeze){
+            throw new IllegalArgumentException("Your account is frozen");
+        }
+        else{
+            this.password = passwordIn;
+            this.balance = balanceIn;
+            this.interest = interestIn;
+            this.maxWithdrawAmt = maxWithdrawAmtIn;
+            this.freeze = false;
+        }
     }
+
 
     @Override
     public double checkBal() {
-        return balance;
+        if(freeze){
+            throw new IllegalArgumentException("Your account is frozen");
+        }
+        else{
+            return balance;
+        }
     }
 
     @Override
     public void withdraw(double amount) throws InsufficientFundsException {
-        if ((amount <= balance) && (balance != 0) && (amount <= maxWithdrawAmt)){
+        if(freeze){
+            throw new IllegalArgumentException("Your account is frozen");
+        }
+        else if ((amount <= balance) && (balance != 0) && (amount <= maxWithdrawAmt)){
             balance -= amount;
         }
         else{
@@ -31,12 +47,20 @@ public class SavingsAccount implements BankAccountInterface{
 
     @Override
     public void deposit(double amount) {
-        balance += amount;
+        if(freeze){
+            throw new IllegalArgumentException("Your account is frozen");
+        }
+        else if(amount > 0){
+            balance += amount;
+        }
     }
 
     @Override
     public void transferTo(BankAccountInterface transferAccount, double amount) throws InsufficientFundsException {
-        if (this.balance <= amount){
+        if(freeze){
+            throw new IllegalArgumentException("Your account is frozen");
+        }
+        else if (this.balance <= amount){
             this.balance -= amount;
             transferAccount.deposit(amount);
         }
@@ -47,18 +71,40 @@ public class SavingsAccount implements BankAccountInterface{
 
     @Override
     public String transactionHistory() {
-        
-        return null;
+        if(freeze){
+            throw new IllegalArgumentException("Your account is frozen");
+        }
+        else{
+            return null;
+        }
     }
 
     public void compound() {
-        balance += balance * interest;
+        if(freeze){
+            throw new IllegalArgumentException("Your account is frozen");
+        }
+        else{
+            balance += balance * interest;
+        }
     }
 
     @Override
     public String getPassword() {
-        
-        return password;
+        if(freeze){
+            throw new IllegalArgumentException("Your account is frozen");
+        }
+        else{
+            return password;
+        }
     }
 
+    @Override
+    public void isFrozen(Boolean isFreeze) {
+        if(isFreeze){
+            this.freeze = true;
+        }
+        else{
+            this.freeze = false;
+        }  
+    }
 }

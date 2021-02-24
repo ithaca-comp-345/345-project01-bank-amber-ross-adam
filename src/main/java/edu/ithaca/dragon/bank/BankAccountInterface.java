@@ -2,7 +2,7 @@ package edu.ithaca.dragon.bank;
 
 public interface BankAccountInterface {
 
-    public double checkBal();
+	public double checkBal();
 
     public void withdraw(double amount) throws InsufficientFundsException;
 
@@ -14,4 +14,5 @@ public interface BankAccountInterface {
 
     public String getPassword();
 
+    public void isFrozen(Boolean isFreeze);
 }

@@ -24,7 +24,7 @@ public class Administration {
      * @return prints report of recent transactions, password, balance.
      */
     public String requestReport(BankAccountInterface account){
-        return " Balance: " + account.checkBal() + " History: " + account.transactionHistory();
+        return "Password: " + account.getPassword() + " Balance: " + account.checkBal() + " History: " + account.transactionHistory();
     }
     
     /**
@@ -33,7 +33,8 @@ public class Administration {
      * @return Void.
      */
     public void freeze(BankAccountInterface account){
-
+        Boolean freezeAct = true;
+        account.isFrozen(freezeAct);
     }
 
     /**
@@ -42,7 +43,8 @@ public class Administration {
      * @return Void.
      */
     public void unfreeze(BankAccountInterface account){
-
+        Boolean unFreezeAct = false;
+        account.isFrozen(unFreezeAct);
     }
 
 

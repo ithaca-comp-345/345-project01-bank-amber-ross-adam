@@ -60,7 +60,7 @@ public class AdministrationTest {
     assertThrows(IllegalArgumentException.class, () -> account.deposit(11));
     assertThrows(IllegalArgumentException.class, () -> account.withdraw(1));
 
-
+    admin.freeze(account2);
     assertThrows(IllegalArgumentException.class, () -> account2.checkBal());
     assertThrows(IllegalArgumentException.class, () -> account2.getPassword());
     assertThrows(IllegalArgumentException.class, () -> account2.transferTo(account, 100));
@@ -78,6 +78,7 @@ public class AdministrationTest {
     Administration admin = new Administration();
     BankAccountInterface account = new CheckingAccount("123", 0);
     admin.freeze(account);
+    admin.unfreeze(account);
     assertEquals(0, account.checkBal());
     assertEquals("123", account.getPassword());
     account.deposit(11);
