@@ -49,4 +49,8 @@ public class CheckingAccount implements BankAccountInterface{
         return null;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
 }

@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 public class BankAccountTeller {
     
-    private String accountID;
+    public String accountID;
     List<BankAccountInterface> accounts = new ArrayList<BankAccountInterface>();
     
     /**
      * @post Creates a new bankAccount() with accountID 
      * 
      * checking or saving account if/statment
-     * Keep track of this accounts using array list.
+     * Keep track of this accounts using list.
      * 
      */
     public void createAccount(String accountID, String which, double startingBalance){
@@ -35,7 +35,7 @@ public class BankAccountTeller {
     }
 
     /**
-     * @post remove accountID from array list
+     * @post remove accountID from list
      * what bankaccount you want to close in parm
      */
     public void closeAccount(String removeAccountID) {
@@ -46,9 +46,8 @@ public class BankAccountTeller {
      * @post get AccountID
      * returns the accountID
      */
-    public String getAccountID(){
-        return accountID;
-        
+    public String getAccountID( int index ){
+        return accounts.get(index).getPassword();
 
     }
 

@@ -19,6 +19,11 @@ public class SavingsAccount implements BankAccountInterface{
         return balance;
     }
 
+    
+    public String getPassword() {
+        return password;
+    }
+
     @Override
     public void withdraw(double amount) throws InsufficientFundsException {
         if ((amount <= balance) && (balance != 0) && (amount <= maxWithdrawAmt)){

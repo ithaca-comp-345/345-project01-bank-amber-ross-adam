@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BankAccountTellerTest {
    
-    //get the balance to see if the account exits . Ask amber the balance 
+    
     @Test
     void createAccountAndGetBalanceTest() {
         BankAccountTeller teller = new BankAccountTeller(); 
@@ -22,21 +22,38 @@ public class BankAccountTellerTest {
 
     @Test
     void getAccountIDTest() throws InsufficientFundsException {
-        BankAccountTeller amber = new BankAccountTeller(); 
-        amber.createAccount("123405", "elliott.amber2017@gmail.com", 400.50);
-
-        assertEquals("123405", amber.getAccountID());
+        BankAccountTeller teller = new BankAccountTeller(); 
+        teller.createAccount("123405", "Checking", 400.50);
         
+        teller.createAccount("43235", "Savings", 400.50);
+
+        assertEquals("123405", teller.getAccountID(0));
+        
+        assertEquals("43235", teller.getAccountID(1));
+        
+        //assertEquals("43235", teller.getAccountID(2)); //not in list
+    
     
     }
 
     @Test
     void closeAccountTest() throws InsufficientFundsException {
-       
+        BankAccountTeller teller = new BankAccountTeller(); 
+        teller.createAccount("123405", "checking", 400.50);
+        teller.createAccount("345654", "saving", 400.50);
+
+
+
     }
 
     @Test 
     void checkBalance() throws InsufficientFundsException{
+
+    }
+
+    //st
+    @Test 
+    void custumerTest() throws InsufficientFundsException{
 
     }
 
