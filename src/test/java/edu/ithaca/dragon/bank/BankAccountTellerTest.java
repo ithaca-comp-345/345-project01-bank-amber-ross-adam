@@ -30,8 +30,9 @@ public class BankAccountTellerTest {
         assertEquals("123405", teller.getAccountID(0));
         
         assertEquals("43235", teller.getAccountID(1));
+
+        //assertThrows(InsufficientFundsException.class, () -> account.getAccountID(2));
         
-        //assertEquals("43235", teller.getAccountID(2)); //not in list
     
     
     }
@@ -42,6 +43,10 @@ public class BankAccountTellerTest {
         teller.createAccount("123405", "checking", 400.50);
         teller.createAccount("345654", "saving", 400.50);
 
+        teller.closeAccount("123405");
+        assertThrows(InsufficientFundsException.class, () -> account.getAccountID(0));
+        
+        
 
 
     }
@@ -51,7 +56,7 @@ public class BankAccountTellerTest {
 
     }
 
-    //st
+    //system test. check if customer can check balane 
     @Test 
     void custumerTest() throws InsufficientFundsException{
 

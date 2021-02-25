@@ -36,10 +36,13 @@ public class BankAccountTeller {
 
     /**
      * @post remove accountID from list
-     * what bankaccount you want to close in parm
+     * if accounts empty tell user
+     * else remove the account
      */
     public void closeAccount(String removeAccountID) {
-        
+        if (accounts.isEmpty()){
+            
+        }
     }  
 
     /**
