@@ -8,25 +8,25 @@ import java.util.ArrayList;
 public class AdministrationTest {
     @Test
     void getOverallMoneyTest(){
-    /** One equivalence class is the amount of balances being added together.
-     * One is the minimum, if it is less than one it will throw an exception. 
-     * There is no maximum. 
-     * Another equivalence class is correct/incorrect balances.
-     * An incorrect balance (negative) would throw an exception. Overall money should never
-     * be negative.
-     * Edge cases: only one bank account object added, overall money = 0
-    */
-    ArrayList bankAccounts = new ArrayList<BankAccountInterface>();
-    Administration admin = new Administration();
-    bankAccounts.add(new CheckingAccount("password", 200));
-    assertEquals(200, admin.getOverallMoney(bankAccounts));
-    bankAccounts.add(new SavingsAccount("password", 12.32, .10, 1000));
-    assertEquals(212.32, admin.getOverallMoney(bankAccounts));
-    assertEquals(212.32, admin.getOverallMoney(bankAccounts));
-    bankAccounts.clear();
-    bankAccounts.add(new CheckingAccount("password", 0));
-    assertEquals(0, admin.getOverallMoney(bankAccounts));
-    assertThrows(IllegalArgumentException.class, () -> bankAccounts.add(new CheckingAccount("password", -10)));
+        /** One equivalence class is the amount of balances being added together.
+         * One is the minimum, if it is less than one it will throw an exception. 
+         * There is no maximum. 
+         * Another equivalence class is correct/incorrect balances.
+         * An incorrect balance (negative) would throw an exception. Overall money should never
+         * be negative.
+         * Edge cases: only one bank account object added, overall money = 0
+        */
+        ArrayList bankAccounts = new ArrayList<BankAccountInterface>();
+        Administration admin = new Administration();
+        bankAccounts.add(new CheckingAccount("password", 200));
+        assertEquals(200, admin.getOverallMoney(bankAccounts));
+        bankAccounts.add(new SavingsAccount("password", 12.32, .10, 1000));
+        assertEquals(212.32, admin.getOverallMoney(bankAccounts));
+        assertEquals(212.32, admin.getOverallMoney(bankAccounts));
+        bankAccounts.clear();
+        bankAccounts.add(new CheckingAccount("password", 0));
+        assertEquals(0, admin.getOverallMoney(bankAccounts));
+        assertThrows(IllegalArgumentException.class, () -> bankAccounts.add(new CheckingAccount("password", -10)));
     }
     @Test
     void requestReportTest(){
