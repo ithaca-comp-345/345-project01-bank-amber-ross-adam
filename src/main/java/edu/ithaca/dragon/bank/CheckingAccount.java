@@ -2,11 +2,11 @@ package edu.ithaca.dragon.bank;
 
 public class CheckingAccount implements BankAccountInterface{
 
-    public String password;
+    public String accountId;
     public double balance;
 
-    public CheckingAccount(String passwordIn, double balanceIn){
-        this.password = passwordIn;
+    public CheckingAccount(String accountId, double balanceIn){
+        this.accountId = accountId;
         this.balance = balanceIn;
     }
 
@@ -49,8 +49,8 @@ public class CheckingAccount implements BankAccountInterface{
         return null;
     }
 
-    public String getPassword() {
-        return password;
+    public String getAccountID() {
+        return accountId;
     }
 
 }

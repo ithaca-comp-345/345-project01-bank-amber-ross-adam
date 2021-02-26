@@ -34,17 +34,19 @@ public class BankAccountTeller {
      * else remove the account
      */
     public void closeAccount(String removeAccountID) {
-        if (accounts.isEmpty()){
-            
-        }
+       /* if (accounts.contains(removeAccountID) == removeAccountID ){
+            accounts.remove(removeAccountID);
+       }*/
     }  
 
     /**
-     * @post get AccountID
      * returns the accountID
      */
     public String getAccountID( int index ){
-        return accounts.get(index).getPassword();
+        if (accounts.isEmpty() || index <0 ||  index >= accounts.size() ){
+            throw new IllegalArgumentException("Account doesn't exits");
+        }
+        return accounts.get(index).getAccountID();
 
     }
 

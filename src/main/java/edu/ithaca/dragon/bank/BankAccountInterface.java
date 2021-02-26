@@ -4,7 +4,7 @@ public interface BankAccountInterface {
 
     public double checkBal();
 
-    public String getPassword();
+    public String getAccountID();
 
     public void withdraw(double amount) throws InsufficientFundsException;
 

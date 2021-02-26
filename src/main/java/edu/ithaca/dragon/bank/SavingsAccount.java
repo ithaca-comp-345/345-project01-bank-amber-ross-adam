@@ -2,13 +2,13 @@ package edu.ithaca.dragon.bank;
 
 public class SavingsAccount implements BankAccountInterface{
 
-    public String password;
+    public String accountID;
     public double balance;
     public double interest;
     public double maxWithdrawAmt;
 
-    public SavingsAccount(String passwordIn, double balanceIn, double interestIn, double maxWithdrawAmtIn){
-        this.password = passwordIn;
+    public SavingsAccount(String accountID, double balanceIn, double interestIn, double maxWithdrawAmtIn){
+        this.accountID = accountID;
         this.balance = balanceIn;
         this.interest = interestIn;
         this.maxWithdrawAmt = maxWithdrawAmtIn;
@@ -20,8 +20,8 @@ public class SavingsAccount implements BankAccountInterface{
     }
 
     
-    public String getPassword() {
-        return password;
+    public String getAccountID() {
+        return accountID;
     }
 
     @Override

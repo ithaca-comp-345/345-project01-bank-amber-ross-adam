@@ -21,30 +21,29 @@ public class BankAccountTellerTest {
 
 
     @Test
-    void getAccountIDTest() throws InsufficientFundsException {
+    void getAccountIDTest() throws IllegalArgumentException {
         BankAccountTeller teller = new BankAccountTeller(); 
         teller.createAccount("123405", "Checking", 400.50, 0, 0);
-        
         teller.createAccount("43235", "Savings", 400.50, .5, 1000);
 
+        //Make accounts
         assertEquals("123405", teller.getAccountID(0));
-        
         assertEquals("43235", teller.getAccountID(1));
 
-        //assertThrows(InsufficientFundsException.class, () -> account.getAccountID(2));
+        //Account doesn't exists
+        assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(-1));
+        assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(2));
         
-    
-    
     }
 
     @Test
-    void closeAccountTest() throws InsufficientFundsException {
+    void closeAccountTest() throws IllegalArgumentException {
         BankAccountTeller teller = new BankAccountTeller(); 
         teller.createAccount("123405", "checking", 400.50, 0, 0);
         teller.createAccount("345654", "savings", 400.50, 0.5, 1000);
 
         teller.closeAccount("123405");
-        assertThrows(InsufficientFundsException.class, () -> account.getAccountID(0));
+        assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(0));
         
         
 
@@ -56,10 +55,16 @@ public class BankAccountTellerTest {
 
     }
 
-    //system test. check if customer can check balane 
+    //system test  
     @Test 
-    void custumerTest() throws InsufficientFundsException{
-
+    void customerTest() throws InsufficientFundsException{
+        BankAccountTeller teller = new BankAccountTeller(); 
+        teller.createAccount("123405", "checking", 400.50, 0, 0);
+        teller.createAccount("345654", "savings", 400.50, 0.5, 1000);
+        
+        teller.closeAccount("123405");
+        //check balnce of 
+        
     }
 
 
