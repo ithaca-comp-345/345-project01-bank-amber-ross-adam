@@ -48,7 +48,13 @@ public class BankAccountTeller {
      * returns account based off accountID
      */
     public BankAccountInterface getAccount(String accountID){
-        return null;
+        BankAccountInterface account = null;
+        for(int i = 0; i < accounts.size(); i++){
+            if(accounts.get(i).getAccountID().equals(accountID)){
+                account = accounts.get(i);
+            }
+        }
+        return account;
     }
     /**
      * returns the accountID

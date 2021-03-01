@@ -28,10 +28,11 @@ public class BankAccountTellerTest {
 
 
         BankAccountInterface account1 = teller.getAccount("123405");
+        System.out.println(teller.accounts.get(0).getAccountID());
         assertEquals(400.50, account1.checkBal());
 
         BankAccountInterface account2 = teller.getAccount("43235");
-        assertEquals(400.50, account2.checkBal());
+        assertEquals(40.0, account2.checkBal());
     }
 
 
