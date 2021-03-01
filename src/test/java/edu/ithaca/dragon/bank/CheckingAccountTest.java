@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class CheckingAccountTest {
 
+    //Test for withdraw() method
     @Test
     public void withdrawTest() throws InsufficientFundsException {
         CheckingAccount myChecking = new CheckingAccount("carrot", 100);
@@ -20,6 +21,7 @@ public class CheckingAccountTest {
         assertEquals(myChecking.checkBal(), 0);
     }
 
+    //Test for deposit() method
     @Test
     public void depositTest(){
         CheckingAccount myChecking = new CheckingAccount("carrot", 100);
@@ -29,6 +31,7 @@ public class CheckingAccountTest {
         assertEquals(myChecking.checkBal(), 100);
     }
 
+    //Test for transfer() method
     @Test
     public void transferTest() throws InsufficientFundsException {
         CheckingAccount myChecking = new CheckingAccount("carrot", 100);
