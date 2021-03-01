@@ -4,6 +4,8 @@ public interface BankAccountInterface {
 
 	public double checkBal();
 
+    public String getAccountID();
+
     public void withdraw(double amount) throws InsufficientFundsException;
 
     public void deposit(double amount);
@@ -12,7 +14,8 @@ public interface BankAccountInterface {
 
     public String transactionHistory();
 
-    public String getPassword();
-
     public void isFrozen(Boolean isFreeze);
+
+    public Boolean getFreeze();
+
 }
