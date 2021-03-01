@@ -10,6 +10,8 @@ public class BankAccountTeller {
     List<BankAccountInterface> accounts = new ArrayList<BankAccountInterface>();
     
     /**
+     * @param j
+     * @param i
      * @post Creates a new bankAccount() with accountID 
      * 
      * checking or saving account if/statment
@@ -34,10 +36,10 @@ public class BankAccountTeller {
      */
     public void closeAccount(String removeAccountID) {
         for (int index=0; index < accounts.size(); index++){
-            if (accounts.getAccountID(index) == removeAccountID ){
+           /* if (accounts.getAccountID(index) == removeAccountID ){
                 accounts.remove(index);
             } 
-            
+            */
         }
         
         

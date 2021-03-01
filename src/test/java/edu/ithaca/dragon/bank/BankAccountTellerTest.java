@@ -67,7 +67,7 @@ public class BankAccountTellerTest {
         teller.createAccount("123405", "checking", 400.50, 0, 0);
         teller.createAccount("345654", "savings", 400.50, 0.5, 1000);
         
-        checking.withdraw(50);
+        //checking
          
         
     }
