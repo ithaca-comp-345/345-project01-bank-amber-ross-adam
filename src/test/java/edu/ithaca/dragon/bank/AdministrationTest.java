@@ -55,14 +55,12 @@ public class AdministrationTest {
     BankAccountInterface account2 = new SavingsAccount("1234", 100, .05, 1000);
     admin.freeze(account1);
     assertThrows(IllegalArgumentException.class, () -> account1.checkBal());
-    assertThrows(IllegalArgumentException.class, () -> account1.getAccountID());
     assertThrows(IllegalArgumentException.class, () -> account1.transferTo(account2, 100));
     assertThrows(IllegalArgumentException.class, () -> account1.deposit(11));
     assertThrows(IllegalArgumentException.class, () -> account1.withdraw(1));
 
     admin.freeze(account2);
     assertThrows(IllegalArgumentException.class, () -> account2.checkBal());
-    assertThrows(IllegalArgumentException.class, () -> account2.getAccountID());
     assertThrows(IllegalArgumentException.class, () -> account2.transferTo(account1, 100));
     assertThrows(IllegalArgumentException.class, () -> account2.deposit(11));
     assertThrows(IllegalArgumentException.class, () -> account2.withdraw(1));

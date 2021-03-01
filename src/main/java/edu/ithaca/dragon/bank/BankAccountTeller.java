@@ -35,14 +35,13 @@ public class BankAccountTeller {
      *
      */
     public void closeAccount(String removeAccountID) {
-        for (int index=0; index < accounts.size(); index++){
-           /* if (accounts.getAccountID(index) == removeAccountID ){
-                accounts.remove(index);
-            } 
-            */
+        for(int i = 0; i < accounts.size(); i++){
+            if(accounts.get(i).getAccountID().equals(removeAccountID)){
+                accounts.remove(i);
+                break;
+            }
         }
-        
-        
+
     }
     /**
      * returns account based off accountID
@@ -52,7 +51,8 @@ public class BankAccountTeller {
         for(int i = 0; i < accounts.size(); i++){
             if(accounts.get(i).getAccountID().equals(accountID)){
                 account = accounts.get(i);
-            }
+                break;
+            } 
         }
         return account;
     }

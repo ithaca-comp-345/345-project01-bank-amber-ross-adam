@@ -16,4 +16,6 @@ public interface BankAccountInterface {
 
     public void isFrozen(Boolean isFreeze);
 
+    public Boolean getFreeze();
+
 }

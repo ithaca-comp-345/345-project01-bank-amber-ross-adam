@@ -78,12 +78,7 @@ public class CheckingAccount implements BankAccountInterface{
 
     @Override
     public String getAccountID() {
-        if(freeze){
-            throw new IllegalArgumentException("Your account is frozen");
-        }
-        else{
             return accountID;
-        }
     }
 
     @Override
@@ -94,5 +89,11 @@ public class CheckingAccount implements BankAccountInterface{
         else{
             this.freeze = false;
         } 
+    }
+
+    @Override
+    public Boolean getFreeze() {
+        return freeze;
+
     }
 }

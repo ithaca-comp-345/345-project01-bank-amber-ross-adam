@@ -1,16 +1,17 @@
 package edu.ithaca.dragon.bank;
 
 import java.util.ArrayList;
-
+import java.util.List;
 public class Administration {
     
+    public ArrayList<BankAccountInterface> frozenAccounts;
 
     /**
      * Returns sum of all bank accounts
      * @param accountList
      * @return sum of all balances in accountList
      */
-    public double getOverallMoney(ArrayList<BankAccountInterface> accountList){
+    public double getOverallMoney(List<BankAccountInterface> accountList){
         double sum = 0;
         for(int i = 0; i< accountList.size(); i++){
             sum += accountList.get(i).checkBal();
