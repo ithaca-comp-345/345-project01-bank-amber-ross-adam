@@ -25,7 +25,7 @@ public class BankAccountTellerTest {
         BankAccountTeller teller = new BankAccountTeller(); 
         teller.createAccount("123405", "Checking", 400.50, 0, 0);
         teller.createAccount("43235", "Savings", 400.50, .5, 1000);
-        teller.createAccount("43235", "Savings", 40.00, 1.00, 10);
+        teller.createAccount("43235", "Savings", 40.00, 1.00, 10); 
 
         //Make accounts
         assertEquals("123405", teller.getAccountID(0));
@@ -49,26 +49,28 @@ public class BankAccountTellerTest {
 
         teller.closeAccount("123405");
         assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(0));
-        
-    
 
 
     }
 
     @Test 
     void checkBalance() throws InsufficientFundsException{
+          //TODO
 
     }
 
-    //system test  
+    //system test check to see if user can create account, withdraw and deposit
     @Test 
     void customerTest() throws InsufficientFundsException{
         BankAccountTeller teller = new BankAccountTeller(); 
-        teller.createAccount("123405", "checking", 400.50, 0, 0);
-        teller.createAccount("345654", "savings", 400.50, 0.5, 1000);
+        teller.createAccount("123405", "Checking", 400.50, 0, 0);
+        teller.createAccount("43235", "Savings", 400.50, .5, 1000);
         
-        //checking
-         
+
+        teller.accounts.get(0).withdraw(200);  
+        teller.accounts.get(1).withdraw(.50);
+        teller.accounts.get(0).deposit(200.50);
+        
         
     }
 
