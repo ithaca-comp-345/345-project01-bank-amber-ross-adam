@@ -25,14 +25,19 @@ public class BankAccountTellerTest {
         BankAccountTeller teller = new BankAccountTeller(); 
         teller.createAccount("123405", "Checking", 400.50, 0, 0);
         teller.createAccount("43235", "Savings", 400.50, .5, 1000);
+        teller.createAccount("43235", "Savings", 40.00, 1.00, 10);
 
         //Make accounts
         assertEquals("123405", teller.getAccountID(0));
         assertEquals("43235", teller.getAccountID(1));
+        assertEquals("43235", teller.getAccountID(2));
+        
 
         //Account doesn't exists
         assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(-1));
-        assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(2));
+        assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(-10));
+        assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(3));
+        assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(10));
         
     }
 
@@ -45,7 +50,7 @@ public class BankAccountTellerTest {
         teller.closeAccount("123405");
         assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(0));
         
-        
+    
 
 
     }
@@ -62,8 +67,8 @@ public class BankAccountTellerTest {
         teller.createAccount("123405", "checking", 400.50, 0, 0);
         teller.createAccount("345654", "savings", 400.50, 0.5, 1000);
         
-        teller.closeAccount("123405");
-        //check balnce of 
+        checking.withdraw(50);
+         
         
     }
 

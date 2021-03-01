@@ -30,13 +30,17 @@ public class BankAccountTeller {
 
     /**
      * @post remove accountID from list
-     * if accounts empty tell user
-     * else remove the account
+     *
      */
     public void closeAccount(String removeAccountID) {
-       /* if (accounts.contains(removeAccountID) == removeAccountID ){
-            accounts.remove(removeAccountID);
-       }*/
+        for (int index=0; index < accounts.size(); index++){
+            if (accounts.getAccountID(index) == removeAccountID ){
+                accounts.remove(index);
+            } 
+            
+        }
+        
+        
     }  
 
     /**
