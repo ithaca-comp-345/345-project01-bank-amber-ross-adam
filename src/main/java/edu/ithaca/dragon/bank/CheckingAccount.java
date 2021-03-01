@@ -2,16 +2,16 @@ package edu.ithaca.dragon.bank;
 
 public class CheckingAccount implements BankAccountInterface{
 
-    public String password;
+    public String accountID;
     public double balance;
     public boolean freeze;
 
-    public CheckingAccount(String passwordIn, double balanceIn){
+    public CheckingAccount(String accountID, double balanceIn){
         if(freeze){
             throw new IllegalArgumentException("Your account is frozen");
         }
         else{
-            this.password = passwordIn;
+            this.accountID = accountID;
             this.balance = balanceIn;
             freeze = false;
         }
@@ -74,13 +74,15 @@ public class CheckingAccount implements BankAccountInterface{
         }
     }
 
+
+
     @Override
-    public String getPassword() {
+    public String getAccountID() {
         if(freeze){
             throw new IllegalArgumentException("Your account is frozen");
         }
         else{
-            return password;
+            return accountID;
         }
     }
 
