@@ -2,18 +2,18 @@ package edu.ithaca.dragon.bank;
 
 public class SavingsAccount implements BankAccountInterface{
 
-    public String password;
+    public String accountID;
     public double balance;
     public double interest;
     public double maxWithdrawAmt;
     public boolean freeze;
 
-    public SavingsAccount(String passwordIn, double balanceIn, double interestIn, double maxWithdrawAmtIn){
+    public SavingsAccount(String accountID, double balanceIn, double interestIn, double maxWithdrawAmtIn){
         if(freeze){
             throw new IllegalArgumentException("Your account is frozen");
         }
         else{
-            this.password = passwordIn;
+            this.accountID = accountID;
             this.balance = balanceIn;
             this.interest = interestIn;
             this.maxWithdrawAmt = maxWithdrawAmtIn;
@@ -30,6 +30,11 @@ public class SavingsAccount implements BankAccountInterface{
         else{
             return balance;
         }
+    }
+
+    
+    public String getAccountID() {
+        return accountID;
     }
 
     @Override
@@ -89,12 +94,12 @@ public class SavingsAccount implements BankAccountInterface{
     }
 
     @Override
-    public String getPassword() {
+    public String getAccountID() {
         if(freeze){
             throw new IllegalArgumentException("Your account is frozen");
         }
         else{
-            return password;
+            return accountID;
         }
     }
 

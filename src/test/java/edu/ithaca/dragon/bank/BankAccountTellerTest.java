@@ -7,37 +7,71 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BankAccountTellerTest {
    
-    //get the balance to see if the account exits . Ask amber the balance 
+    
     @Test
     void createAccountAndGetBalanceTest() {
         BankAccountTeller teller = new BankAccountTeller(); 
-        teller.createAccount("123405", "Checking", 400.50);
-        assertNotNull(teller.accounts.get(0));
-        //assertEquals(400.50, teller.checkBalance("123405"));
-        //teller.createAccount("123", "Savings", 100);
-        //assertEquals(400.50, teller.checkBalance("123"));
+        teller.createAccount("123405", "Checking", 400.50, 0, 0);
+        assertNotNull(teller.accounts.get(0).checkBal());
+        
+        teller.createAccount("123", "Savings", 100, 0.5, 1000);
+        assertEquals(100, teller.accounts.get(1).checkBal());
         
     }
 
 
     @Test
-    void getAccountIDTest() throws InsufficientFundsException {
-        BankAccountTeller amber = new BankAccountTeller(); 
-        amber.createAccount("123405", "elliott.amber2017@gmail.com", 400.50);
+    void getAccountIDTest() throws IllegalArgumentException {
+        BankAccountTeller teller = new BankAccountTeller(); 
+        teller.createAccount("123405", "Checking", 400.50, 0, 0);
+        teller.createAccount("43235", "Savings", 400.50, .5, 1000);
+        teller.createAccount("43235", "Savings", 40.00, 1.00, 10); 
 
-        assertEquals("123405", amber.getAccountID());
+        //Make accounts
+        assertEquals("123405", teller.getAccountID(0));
+        assertEquals("43235", teller.getAccountID(1));
+        assertEquals("43235", teller.getAccountID(2));
         
-    
+
+        //Account doesn't exists
+        assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(-1));
+        assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(-10));
+        assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(3));
+        assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(10));
+        
     }
 
     @Test
-    void closeAccountTest() throws InsufficientFundsException {
-       
+    void closeAccountTest() throws IllegalArgumentException {
+        BankAccountTeller teller = new BankAccountTeller(); 
+        teller.createAccount("123405", "checking", 400.50, 0, 0);
+        teller.createAccount("345654", "savings", 400.50, 0.5, 1000);
+
+        teller.closeAccount("123405");
+        assertThrows(IllegalArgumentException.class, () -> teller.getAccountID(0));
+
+
     }
 
     @Test 
     void checkBalance() throws InsufficientFundsException{
+          //TODO
 
+    }
+
+    //system test check to see if user can create account, withdraw and deposit
+    @Test 
+    void customerTest() throws InsufficientFundsException{
+        BankAccountTeller teller = new BankAccountTeller(); 
+        teller.createAccount("123405", "Checking", 400.50, 0, 0);
+        teller.createAccount("43235", "Savings", 400.50, .5, 1000);
+        
+
+        teller.accounts.get(0).withdraw(200);  
+        teller.accounts.get(1).withdraw(.50);
+        teller.accounts.get(0).deposit(200.50);
+        
+        
     }
 
 
