@@ -19,6 +19,21 @@ public class BankAccountTellerTest {
         
     }
 
+    @Test
+    void getAccountTest(){
+        BankAccountTeller teller = new BankAccountTeller();
+        teller.createAccount("123405", "Checking", 400.50, 0, 0);
+        teller.createAccount("43236", "Savings", 400.50, .5, 1000);
+        teller.createAccount("43235", "Savings", 40.00, 1.00, 10); 
+
+
+        BankAccountInterface account1 = teller.getAccount("123405");
+        assertEquals(400.50, account1.checkBal());
+
+        BankAccountInterface account2 = teller.getAccount("43235");
+        assertEquals(400.50, account2.checkBal());
+    }
+
 
     @Test
     void getAccountIDTest() throws IllegalArgumentException {
