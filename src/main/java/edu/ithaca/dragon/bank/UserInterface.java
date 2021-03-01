@@ -60,9 +60,9 @@ public class UserInterface {
                                 System.out.println("Incorrect input");
                             }
                         }
-                        if(checkOrSavings.equalsIgnoreCase("savings")){
-                            //find and get checking account here
-                            System.out.println("Would you like to: Check balance, deposit, withdraw, transfer, or log out?: ");
+                        else if(checkOrSavings.equalsIgnoreCase("savings")){
+                            //find and get savings account here
+                            System.out.println("Would you like to: Check balance, deposit, withdraw, transfer, compound interest or log out?: ");
                             String checkSelect = sc.nextLine();
                             if(checkSelect.equalsIgnoreCase("check balance")){
                                 System.out.println(accountCheck.checkBal());

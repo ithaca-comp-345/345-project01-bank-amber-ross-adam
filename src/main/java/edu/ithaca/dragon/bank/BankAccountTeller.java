@@ -43,8 +43,13 @@ public class BankAccountTeller {
         }
         
         
-    }  
-
+    }
+    /**
+     * returns account based off accountID
+     */
+    public BankAccountInterface getAccount(String accountID){
+        return null;
+    }
     /**
      * returns the accountID
      */
