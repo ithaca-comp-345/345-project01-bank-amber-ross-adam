@@ -1,6 +1,9 @@
 package edu.ithaca.dragon.bank;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
 public class SavingsAccountTest {
     
-    SavingsAccount mySavings = new SavingsAccount("apple", 100, 0.03, 500);
 }

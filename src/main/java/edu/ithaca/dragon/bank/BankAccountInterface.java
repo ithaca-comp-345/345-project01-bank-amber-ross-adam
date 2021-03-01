@@ -2,7 +2,7 @@ package edu.ithaca.dragon.bank;
 
 public interface BankAccountInterface {
 
-    public double checkBal();
+	public double checkBal();
 
     public String getAccountID();
 
@@ -14,5 +14,6 @@ public interface BankAccountInterface {
 
     public String transactionHistory();
 
+    public void isFrozen(Boolean isFreeze);
 
 }
