@@ -46,6 +46,4 @@ public class Administration {
         Boolean unFreezeAct = false;
         account.isFrozen(unFreezeAct);
     }
-
-
 }
