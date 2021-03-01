@@ -55,14 +55,14 @@ public class AdministrationTest {
     BankAccountInterface account2 = new SavingsAccount("1234", 100, .05, 1000);
     admin.freeze(account1);
     assertThrows(IllegalArgumentException.class, () -> account1.checkBal());
-    assertThrows(IllegalArgumentException.class, () -> account1.getPassword());
+    assertThrows(IllegalArgumentException.class, () -> account1.getAccountID());
     assertThrows(IllegalArgumentException.class, () -> account1.transferTo(account2, 100));
     assertThrows(IllegalArgumentException.class, () -> account1.deposit(11));
     assertThrows(IllegalArgumentException.class, () -> account1.withdraw(1));
 
     admin.freeze(account2);
     assertThrows(IllegalArgumentException.class, () -> account2.checkBal());
-    assertThrows(IllegalArgumentException.class, () -> account2.getPassword());
+    assertThrows(IllegalArgumentException.class, () -> account2.getAccountID());
     assertThrows(IllegalArgumentException.class, () -> account2.transferTo(account1, 100));
     assertThrows(IllegalArgumentException.class, () -> account2.deposit(11));
     assertThrows(IllegalArgumentException.class, () -> account2.withdraw(1));
@@ -84,7 +84,7 @@ public class AdministrationTest {
     admin.freeze(account);
     admin.unfreeze(account);
     assertEquals(0, account.checkBal());
-    assertEquals("123", account.getPassword());
+    assertEquals("123", account.getAccountID());
     account.deposit(11);
     assertEquals(11, account.checkBal());
     account.withdraw(10);
@@ -99,7 +99,7 @@ public class AdministrationTest {
     admin.freeze(account3);
     admin.unfreeze(account3);
     assertEquals(0, account3.checkBal());
-    assertEquals("123", account3.getPassword());
+    assertEquals("123", account3.getAccountID());
     account3.deposit(11);
     assertEquals(11, account3.checkBal());
     account3.withdraw(10);

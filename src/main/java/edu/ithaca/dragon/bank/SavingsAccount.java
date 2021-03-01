@@ -33,10 +33,6 @@ public class SavingsAccount implements BankAccountInterface{
     }
 
     
-    public String getAccountID() {
-        return accountID;
-    }
-
     @Override
     public void withdraw(double amount) throws InsufficientFundsException {
         if(freeze){

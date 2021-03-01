@@ -24,7 +24,7 @@ public class Administration {
      * @return prints report of recent transactions, password, balance.
      */
     public String requestReport(BankAccountInterface account){
-        return "Password: " + account.getPassword() + " Balance: " + account.checkBal() + " History: " + account.transactionHistory();
+        return "Account ID: " + account.getAccountID() + " Balance: " + account.checkBal() + " History: " + account.transactionHistory();
     }
     
     /**
