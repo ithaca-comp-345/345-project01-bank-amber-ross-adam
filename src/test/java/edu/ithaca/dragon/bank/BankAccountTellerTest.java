@@ -80,12 +80,12 @@ public class BankAccountTellerTest {
     void customerTest() throws InsufficientFundsException{
         BankAccountTeller teller = new BankAccountTeller(); 
         teller.createAccount("123405", "Checking", 400.50, 0, 0);
-        teller.createAccount("43235", "Savings", 400.50, .5, 1000);
-        
+        assertEquals("123405", teller.getAccountID(0));
+        teller.accounts.get(0).deposit(200.50);
 
+        teller.createAccount("43235", "Savings", 400.50, .5, 1000);
         teller.accounts.get(0).withdraw(200);  
         teller.accounts.get(1).withdraw(.50);
-        teller.accounts.get(0).deposit(200.50);
         
         
     }
